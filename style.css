@@ -25,3 +25,33 @@ h1{
     flex-direction: row;
 
 }
+
+#library{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+}
+
+#book{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#buttons{
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+#buttons > button{
+
+    height: 5vh;
+    width: 7vw;
+    border-radius: 10px;
+
+}
