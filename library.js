@@ -30,13 +30,15 @@ function submitBookInfo(){
   let bookTitle = document.getElementById("title");
   let bookAuthor = document.getElementById("author");
   let bookYear = document.getElementById("year");
-  let bookReadStatus = document.getElementById("read");
+  let bookReadStatus = document.getElementById("read").checked;
   let bookMade = new Book(bookTitle, bookAuthor, bookYear, bookReadStatus);
   myLibrary.push(bookMade);
   bookInfo.style.display = "none";
   printBookInfo();
   
 }
+
+/*Create and display book info and create buttons*/
 
 function printBookInfo(){
 
@@ -49,53 +51,66 @@ function printBookInfo(){
 
 }
 
+/*Prints information from Book Object to page.*/
+
 function displayInfo(book, i){
 
   displayTitle = document.createElement("div");
-  displayTitle.textContent = myLibrary[i].title.value;
+  displayTitle.id = "book-title";
+  displayTitle.textContent = "Title: " + myLibrary[i].title.value;
   book.appendChild(displayTitle);
 
   displayAuthor = document.createElement("div");
-  displayAuthor.textContent = myLibrary[i].author.value;
-  book.appendChild(displayAuthor);
+  displayAuthor.id = "book-author";
+  displayAuthor.textContent = "Author: " + myLibrary[i].author.value;
+  book.appendChild(displayAuthor); 
 
   displayYear = document.createElement("div");
-  displayYear.textContent = myLibrary[i].year.value;
+  displayYear.id = "book-year";
+  displayYear.textContent = "Year: " + myLibrary[i].year.value;
   book.appendChild(displayYear);
 
 }
 
-function createButtons(book){
+/* Creates "buttons" (properties but it's a keyword) in current book with remove book and read (Y/N) functionalities*/
+
+function createButtons(book, i){
 
   var buttons = document.createElement("div");
   buttons.id = "buttons";
   book.appendChild(buttons);
   
-
-  var readYes = document.createElement("BUTTON");
-  var readNo  = document.createElement("BUTTON");
+  var readCheck = document.createElement("INPUT");
+  readCheck.setAttribute("type", "checkBox");
   var removeInfo = document.createElement("BUTTON");
 
-  readYes.textContent = "Read";
-  readNo.textContent = "Not Read";
+  readCheck.id = "read-check";
+  readCheck.onchange = function(){changeCheck(book)};
+
   removeInfo.textContent = "Remove Book";
-
-  readYes.id = "read-yes";
-  readNo.id = "read-no";
   removeInfo.id = "remove-info";
+  removeInfo.onclick = function(){removeBook(book)};
 
-  buttons.appendChild(readYes);
-  buttons.appendChild(readNo);
+  buttons.appendChild(readCheck);
   buttons.appendChild(removeInfo);
 
 }
 
-function checkReadStatus{
+function changeCheck(book){
 
-
-
+  book.readStatus = document.getElementById("read-check").checked;
 
 }
+
+function removeBook(book){
+
+  book.remove();
+
+}
+
+
+
+
 
 
 
