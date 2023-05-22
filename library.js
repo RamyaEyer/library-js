@@ -33,7 +33,7 @@ function submitBookInfo(){
   let bookReadStatus = document.getElementById("read").checked;
   let bookMade = new Book(bookTitle, bookAuthor, bookYear, bookReadStatus);
   myLibrary.push(bookMade);
-  bookInfo.style.display = "none";
+  bookInfo.style.display = "none"; 
   printBookInfo();
   
 }
@@ -47,7 +47,7 @@ function printBookInfo(){
   book.id = "book";
   library.appendChild(book);
   displayInfo(book, i);
-  createButtons(book);
+  createButtons(book, i);
 
 }
 
@@ -72,7 +72,7 @@ function displayInfo(book, i){
 
 }
 
-/* Creates "buttons" (properties but it's a keyword) in current book with remove book and read (Y/N) functionalities*/
+/* Creates buttons in current book with remove book and read (Y/N) functionalities*/
 
 function createButtons(book, i){
 
@@ -80,33 +80,56 @@ function createButtons(book, i){
   buttons.id = "buttons";
   book.appendChild(buttons);
   
-  var readCheck = document.createElement("INPUT");
-  readCheck.setAttribute("type", "checkBox");
+  var readButton = document.createElement("BUTTON");
+  readButton.id = "read-button";
+
+  if(myLibrary[i].readStatus === true){
+
+    readButton.textContent = "Read";
+
+  }
+
+  else{
+
+    readButton.textContent = "Unread";
+
+  }
+
+  readButton.onclick = function() {changeReadStatus(readButton,i)};
+
   var removeInfo = document.createElement("BUTTON");
-
-  readCheck.id = "read-check";
-  readCheck.onchange = function(){changeCheck(book)};
-
   removeInfo.textContent = "Remove Book";
   removeInfo.id = "remove-info";
-  removeInfo.onclick = function(){removeBook(book)};
+  removeInfo.onclick = function(){book.remove()};
 
-  buttons.appendChild(readCheck);
+  buttons.appendChild(readButton);
   buttons.appendChild(removeInfo);
 
 }
 
-function changeCheck(book){
+/*Changes text on button to show Read/Unread status*/
 
-  book.readStatus = document.getElementById("read-check").checked;
+function changeReadStatus(readButton, i){
+
+  
+  if(myLibrary[i].readStatus === true){
+
+
+    readButton.textContent = "Unread";
+    myLibrary[i].readStatus = false;
+
+  }
+
+  else{
+
+    readButton.textContent = "Read";
+    myLibrary[i].readStatus = true;
+
+  }
 
 }
 
-function removeBook(book){
 
-  book.remove();
-
-}
 
 
 

@@ -15,9 +15,9 @@
 
     <h1>My Library</h1>
 
-    <button id = "add-book-btn" onclick="revealForm()">Add Book</button>
+   <center id = "add-book-div"><button id = "add-book-btn" onclick="revealForm()">Add Book</button></center>
 
-    <form action="" id = "book-info" style="display: none;">
+   <form action="" id = "book-info" style="display: none;">
 
         <h2>Add Book</h2>
 
@@ -44,12 +44,14 @@
 
         <div id="section">
 
-            <label for = "read">Read or Not?        </label>
+            <label for = "read">Read?       </label>
             <input type = "checkbox" name = "book-read", id = "read" required>
 
         </div>
 
-        <button onclick="submitBookInfo(); return false;">Submit</button>
+        <div id = "section"><button id = "submit-button" onclick="submitBookInfo(); return false;">Submit</button></div>
+        
+    
 
     </form>
 

@@ -1,13 +1,36 @@
 *{
     padding: 0;
     margin: 0;
+    background-color: whitesmoke;
 
 }
 
 h1{
 
     text-align: center;
+    color: whitesmoke;
+    background-color: #71677C;
+    padding-top: 2%;
+    padding-bottom: 3%;
 
+}
+
+#add-book-div{
+
+    padding: 2%;
+    padding-bottom: 2%;
+
+}
+
+#add-book-btn{
+
+    padding: 10px;
+    border-radius: 8px;
+    color: #352208;
+    background-color: #86BA90;
+    border-color: #352208;
+    font-size: large;
+    font-weight: bold;
 }
 
 .enter-book{
@@ -15,7 +38,7 @@ h1{
     display: flex;
     flex-direction: column;
     padding-top: 20px;
-    row-gap: 20px;
+    row-gap: 10%;
 
 }
 
@@ -23,8 +46,38 @@ h1{
 
     display: flex;
     flex-direction: row;
+    column-gap: 10%;
+    margin-right: auto;
+    background-color: #71677C;
+    color: whitesmoke;
+    padding: 3%;
+    
+}
+
+#section > label{
+
+    font-size: large;
+    background-color: #71677C;
 
 }
+
+#section > input{
+
+    color: #352208;
+    border-color: #352208;
+
+}
+
+
+#submit-button{
+
+    padding: 7px;
+    height: 5vh;
+    width: 7vw;
+    border-radius: 10px;
+    
+}
+
 
 #library{
 
@@ -34,10 +87,48 @@ h1{
 
 }
 
+#book-info{
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-right: 35%;
+    row-gap: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-color: #352208;
+    
+
+}
+
+#book-info > h2{
+
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 8%;
+    background-color: #71677C;
+    color: whitesmoke;
+
+}
+
+
 #book{
 
     display: flex;
     flex-direction: column;
+    row-gap: 3px;
+    background-color: #71677C;
+    padding: 20px;
+
+}
+
+#book > div{
+
+    background-color: #71677C;
+    color: whitesmoke;
+    font-size: larger;
+    padding-bottom: 5px;
+
 
 }
 
@@ -46,13 +137,18 @@ h1{
 
     display: flex;
     flex-direction: row;
+    column-gap: 5px;
+    padding-top: 15px;
 
 }
 
-#buttons > button{
+#buttons > button, #submit-button{
 
     height: 5vh;
     width: 7vw;
     border-radius: 10px;
+    color: #352208;
+    border-color: #352208;
+    font-weight: bold;
 
 }
